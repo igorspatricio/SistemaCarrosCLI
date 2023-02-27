@@ -10,4 +10,25 @@ module.exports = {
       },
     },
   },
+  // Adiciona o proxy para a produção
+  productionSourceMap: false,
+  configureWebpack: {
+    devtool: 'source-map',
+    output: {
+      crossOriginLoading: 'anonymous'
+    },
+    devServer: {
+      proxy: {
+        '^/api': {
+          target: 'https://sistemacarrros.onrender.com',
+          changeOrigin: true,
+          logLevel: 'debug',
+          pathRewrite: { '^/api': '/' },
+        },
+      },
+    },
+  },
 }
+
+
+

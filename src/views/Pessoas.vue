@@ -14,7 +14,7 @@ import axios from 'axios';
 import Table from '../components/Table/Table.vue'
 import FormPessoa from '../components/FormPessoa.vue'
 export default {
-  name: 'Show-Pessoas',
+  name: 'Route-Pessoas',
   components: {
     Table,
     FormPessoa,

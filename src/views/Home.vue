@@ -10,7 +10,7 @@
 import Menu from '../components/Menu.vue'
 
 export default {
-  name: 'Home-Menu',
+  name: 'Route-Menu',
   components: {
     Menu,
   }
