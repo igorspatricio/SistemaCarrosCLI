@@ -26,7 +26,7 @@ export default {
     }
   },
   created() {
-      axios.get('https://sistemacarrros.onrender.com/pessoas')
+      axios.get('api/pessoas')
         .then(response => {
           this.pessoasList = response.data.map(pessoa =>{
             delete pessoa.createdAt;
@@ -50,7 +50,7 @@ export default {
       },
       addPessoa(pessoa){
         console.log(pessoa);
-        axios.post('https://sistemacarrros.onrender.com/pessoas', pessoa)
+        axios.post('api/pessoas', pessoa)
         .then(response =>{
           console.log(response.data);
           this.pessoasList.push(pessoa)
