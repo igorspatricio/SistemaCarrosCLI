@@ -32,7 +32,7 @@ export default {
     }
   },
   created() {
-      axios.get('api/pessoas/withcarowned')
+      axios.get('https://sistemacarrros.onrender.com/pessoas/withcarowned')
         .then(response => {
           this.pessoasList = response.data.map(pessoa =>{
             delete pessoa.createdAt;

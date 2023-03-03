@@ -37,9 +37,9 @@ export default {
         }
     },
     async mounted() {
-            const revisoesMarca = await axios.get('api/revisoes/marca')
-            const revisoesNome = await axios.get('api/revisoes/nome')
-            const revisoesDataNome = await axios.get('api/revisoes/DataAndName')
+            const revisoesMarca = await axios.get('https://sistemacarrros.onrender.com/revisoes/marca')
+            const revisoesNome = await axios.get('https://sistemacarrros.onrender.com/revisoes/nome')
+            const revisoesDataNome = await axios.get('https://sistemacarrros.onrender.com/revisoes/DataAndName')
 
             if(revisoesNome, revisoesMarca, revisoesDataNome){
 
