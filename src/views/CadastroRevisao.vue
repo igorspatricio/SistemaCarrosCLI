@@ -14,14 +14,13 @@ import axios from 'axios'
         },
         methods: {
             addRevisao(revisao){
-                console.log("foi?");
-                axios.post('https://sistemacarrros.onrender.com/revisoes', revisao)
-                    .then((response) =>{
-                        alert(response.data);
+                axios.post('https://sistemacarrros.onrender.com/revisoes', revisao)                    
+                    .then(result => {
+                        alert(result.data)
                     })
-                    .catch((error) => {
+                    .catch(error =>{
                         alert(error.response.data);
-                    })
+                    })        
             }
         },
     }

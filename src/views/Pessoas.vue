@@ -32,13 +32,7 @@ export default {
     }
   },
   created() {
-    this.getPessoas()
-      
-    },
-    methods: {
-      getPessoas(){
-        
-        axios.get('https://sistemacarrros.onrender.com/pessoas/withcarowned')
+    axios.get('https://sistemacarrros.onrender.com/pessoas/withcarowned')
         .then(response => {
           this.pessoasList = response.data.map(pessoa =>{
             delete pessoa.createdAt;
@@ -51,7 +45,9 @@ export default {
         .catch(error => {
           console.log(error);
         });
-      },
+      
+    },
+    methods: {
       changeShowFrom(){
         this.showForm = !this.showForm 
       },
