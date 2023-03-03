@@ -14,7 +14,7 @@ import axios from 'axios';
         },
         methods: {
             addCarro(carro){
-                axios.post('https://sistemacarrros.onrender.com/carros/getNumberCarrosOwnerPerGender/carros', carro)
+                axios.post('/api/carros', carro)
                     .then(result => {
                         alert(result.data)
                     })

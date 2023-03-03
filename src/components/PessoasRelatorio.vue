@@ -42,7 +42,7 @@ export default {
     async mounted() {
         var idade = []
         var quantidade = []
-        const {data} = await axios.get('https://sistemacarrros.onrender.com/pessoas/infobygender')
+        const {data} = await axios.get('api/pessoas/infobygender')
         
         if (data){
             
