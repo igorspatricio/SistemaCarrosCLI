@@ -14,6 +14,7 @@ import axios from 'axios'
         },
         methods: {
             addRevisao(revisao){
+                console.log("foi?");
                 axios.post('https://sistemacarrros.onrender.com/revisoes', revisao)
                     .then((response) =>{
                         alert(response.data);

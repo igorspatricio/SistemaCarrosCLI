@@ -32,7 +32,13 @@ export default {
     }
   },
   created() {
-      axios.get('https://sistemacarrros.onrender.com/pessoas/withcarowned')
+    this.getPessoas()
+      
+    },
+    methods: {
+      getPessoas(){
+        
+        axios.get('https://sistemacarrros.onrender.com/pessoas/withcarowned')
         .then(response => {
           this.pessoasList = response.data.map(pessoa =>{
             delete pessoa.createdAt;
@@ -45,9 +51,7 @@ export default {
         .catch(error => {
           console.log(error);
         });
-      
-    },
-    methods: {
+      },
       changeShowFrom(){
         this.showForm = !this.showForm 
       },
@@ -59,7 +63,8 @@ export default {
         axios.post('https://sistemacarrros.onrender.com/pessoas', pessoa)
         .then(response =>{
           alert(response.data);
-          pessoa.adiciona_carro = "Cadastro-carros";
+          pessoa.adiciona_carro = "Cadastro-carros-cpf";
+          pessoa.carros_cadastrados = 0
           this.pessoasList.push(pessoa);
           
         })

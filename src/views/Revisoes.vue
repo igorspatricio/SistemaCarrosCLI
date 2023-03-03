@@ -2,7 +2,7 @@
     <div>
         
         <router-link :to="{name: 'Cadastro-revisao'}">
-        <button>Cadastrar um nova Revisao</button>
+        <button>Cadastrar uma nova Revisao</button>
         </router-link><br>
         <div class="data">
             <h4>Intervalo de dadas entre as revisoes</h4>
