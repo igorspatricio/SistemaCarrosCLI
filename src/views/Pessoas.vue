@@ -56,7 +56,7 @@ export default {
       },
       addPessoa(pessoa){
         console.log(pessoa);
-        axios.post('/api/pessoas', pessoa)
+        axios.post('https://sistemacarrros.onrender.com/carros/getNumberCarrosOwnerPerGender/pessoas', pessoa)
         .then(response =>{
           alert(response.data);
           pessoa.adiciona_carro = "Cadastro-carros";

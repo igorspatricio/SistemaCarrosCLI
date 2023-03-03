@@ -25,7 +25,7 @@
         }
     },
     created() {
-        axios.get('/api/carros/owerName')
+        axios.get('https://sistemacarrros.onrender.com/carros/getNumberCarrosOwnerPerGender/carros/owerName')
             .then(response => {
                 this.carrosList = response.data.map(carro =>{
                     carro.Cadastro_Revisao = 'Cadastro-revisao-placa';
