@@ -35,11 +35,15 @@
     display: grid;
     grid: 80px auto 80px / 120px auto;
     min-height: 100vh;
+
+
   }
 
   main{
-      min-width:100vw;
+    grid-column: 1 / 3;
+
       background-color: white;
+      
 
     }
 
@@ -54,5 +58,7 @@
     border-color: dodgerblue;
     background-color:dodgerblue ;
   }
-
+  form{
+    margin: auto;
+  }
 </style>

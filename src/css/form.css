@@ -4,8 +4,8 @@ form{
     display: flex;
     flex-direction: column;
 }
-input[type=text], select, input[type=number] {
-  width: 100%;
+input[type=text], select, input[type=number], input[type=date], textarea {
+  width: 75%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -13,6 +13,13 @@ input[type=text], select, input[type=number] {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+input[type=date], input[type=number]{
+  min-width: 160px;
+  width: 25%;
+
+}
+
 
 input[type=submit] {
     width: 50%;

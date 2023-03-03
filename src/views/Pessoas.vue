@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="content">
+    <div>
     <button @click="changeShowFrom()">Mostrar Cadastro</button>
     <FormPessoa 
       @add-pessoa="addPessoa"  v-show="showForm"/>
-    <Table :pessoas="pessoasList"/>
+      <br>
+    </div>
+    <Table @sort-change="sortTable" :pessoas="pessoasList" v-show="pessoasList.length > 0"/>
+
   </div>
 </template>
 
@@ -13,6 +17,8 @@
 import axios from 'axios';
 import Table from '../components/Table/Table.vue'
 import FormPessoa from '../components/FormPessoa.vue'
+import sortJsList from '../js/sortTable.js'
+
 export default {
   name: 'Route-Pessoas',
   components: {
@@ -21,17 +27,17 @@ export default {
   },
   data(){
     return{
-      pessoasList : [],
+      pessoasList :[],
       showForm : false
     }
   },
   created() {
-      axios.get('https://sistemacarrros.onrender.com/pessoas')
+      axios.get('api/pessoas/withcarowned')
         .then(response => {
           this.pessoasList = response.data.map(pessoa =>{
             delete pessoa.createdAt;
             delete pessoa.updatedAt;
-            pessoa.adiciona_carro = "/Carros/cadastro?cpf="+pessoa.cpf
+            pessoa.adiciona_carro = "Cadastro-carros-cpf"
             return pessoa
           });
           
@@ -50,18 +56,23 @@ export default {
       },
       addPessoa(pessoa){
         console.log(pessoa);
-        axios.post('https://sistemacarrros.onrender.com/pessoas', pessoa)
+        axios.post('/api/pessoas', pessoa)
         .then(response =>{
-          console.log(response.data);
-          this.pessoasList.push(pessoa)
+          alert(response.data);
+          pessoa.adiciona_carro = "Cadastro-carros";
+          this.pessoasList.push(pessoa);
           
         })
         .catch(error =>{
-          alert("CPF já cadastrado!");
-          console.log(error.data);
+          alert(error.response.data);
           
         })
+      },
+      sortTable(howIsSorted){
+        this.pessoasList = sortJsList.sortTable(howIsSorted, this.pessoasList)
+          
       }
+       
     },
 
 };
@@ -69,21 +80,12 @@ export default {
 
 <style >
 
-
-
-
-table {
-  border-collapse: collapse;
-  width: 90%;
+.content{
+  display: flex;
+  flex-direction: column;
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-th{
-	background-color: gray;
-}
+
 
 
 

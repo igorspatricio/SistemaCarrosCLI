@@ -3,8 +3,8 @@
       <a href="#default" class="logo">{{titulo}}</a>
       <div class="header-right" >
         <router-link v-for="(opcao) in opcoes" :key="opcao" 
-          :class="'/' + opcao == WitchPage ? `active` : ``"  
-          :to="opcao">
+          :class=" WitchPage.includes(opcao) ? `active` : ``"  
+          :to="{ path: '/' + opcao}">
           {{opcao}}
         </router-link>      
       </div>
@@ -30,6 +30,7 @@ export default {
 header {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
+
 
 }
 
@@ -69,6 +70,7 @@ header a.active {
 .header-right {
   float: right;
 }
+
 
 </style>
 
