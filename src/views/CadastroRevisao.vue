@@ -14,7 +14,7 @@ import axios from 'axios'
         },
         methods: {
             addRevisao(revisao){
-                axios.post('https://sistemacarrros.onrender.com/revisoes', revisao)
+                axios.post('/api/revisoes', revisao)
                     .then((response) =>{
                         alert(response.data);
                     })

@@ -37,9 +37,9 @@ export default {
         }
     },
     async mounted() {
-        const {data} = await axios.get('https://sistemacarrros.onrender.com/carros/getNumberCarrosOwnerPerGender')
-        const dataMarcas = await axios.get('https://sistemacarrros.onrender.com/carros/getCountCarrosMarcas')
-        const dataMarcasGenero = await axios.get('https://sistemacarrros.onrender.com/carros/getCountCarrosMarcasGenero')
+        const {data} = await axios.get('api/carros/getNumberCarrosOwnerPerGender')
+        const dataMarcas = await axios.get('api/carros/getCountCarrosMarcas')
+        const dataMarcasGenero = await axios.get('api/carros/getCountCarrosMarcasGenero')
 
         if(data && dataMarcas && dataMarcasGenero){
             this.chartData = [{
