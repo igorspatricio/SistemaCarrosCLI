@@ -31,7 +31,7 @@
             }
         },
         created() {
-            axios.get('https://sistemacarrros.onrender.com/carros/getNumberCarrosOwnerPerGender/revisoes')
+            axios.get('https://sistemacarrros.onrender.com/revisoes')
                 .then((response) =>{
                     this.revisaoList = response.data.map(revisao =>{
                         delete revisao.createdAt;
